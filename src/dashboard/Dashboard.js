@@ -2,8 +2,9 @@ import React from "react";
 import NameBox from "./namebox/NameBox";
 import ValueBox from "../components/valuebox/ValueBox";
 import MapView from "../components/mapview/MapView";
+import Bottle from "../components/bottle/Bottle";
 import { primaryColour } from "../style/AppTheme";
-import { StyleSheet, Text, ScrollView, View } from "react-native";
+import { StyleSheet, Text, ScrollView, View, Image } from "react-native";
 
 export default class Dashboard extends React.Component {
   static navigationOptions = ({ navigation, navigationOptions }) => {
@@ -15,13 +16,26 @@ export default class Dashboard extends React.Component {
   };
 
   render() {
-    const {screenProps} = this.props;
+    const { screenProps } = this.props;
     console.log("Dashboard:" + screenProps.user);
+    let bottles = [];
+
+    for (let i = 0; i < 3; i++) {
+      bottles.push(<Bottle key={i} delay={Math.random() * 3000} />);
+    }
+
     return (
       <ScrollView
         style={styles.container}
         contentContainerStyle={styles.layout}
       >
+        <Image
+          style={{ position: "absolute", bottom: 0, right: 0, opacity: 0.5 }}
+          source={require("../../res/bin.png")}
+        />
+
+        {bottles}
+
         <View
           style={{
             position: "relative",
