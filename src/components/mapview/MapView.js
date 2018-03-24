@@ -14,8 +14,8 @@ export default class MapView extends React.Component {
         <ExpoMapView
           style={{ width: "100%", height: "100%" }}
           initialRegion={{
-            latitude: 37.78825,
-            longitude: -122.4324,
+            latitude: -37.7980604,
+            longitude: -144.9595426,
             latitudeDelta: 0.0922,
             longitudeDelta: 0.0421
           }}
