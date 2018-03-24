@@ -5,6 +5,14 @@ import MapView from "../components/mapview/MapView";
 import { StyleSheet, Text, View } from "react-native";
 
 export default class Dashboard extends React.Component {
+  static navigationOptions = ({ navigation, navigationOptions }) => {
+    const { params } = navigation.state;
+
+    return {
+        title: "Home"
+    };
+}
+
   render() {
     return (
       <View style={styles.container}>

@@ -11,8 +11,6 @@ export default StackNavigator(
         Confirmation: { screen: Confirmation }
     },
     {
-        // navigationOptions: ({ navigation }) => ({
-
-        // })
+        headerMode: "none"
     }
 );
