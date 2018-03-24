@@ -24,29 +24,61 @@ export default class Deposit extends Component {
     return this.state.currentWeight.toFixed(2).toString() + " kg";
   }
 
-  render() {
-    let weight = (
-      <Text style={{ fontSize: 72, color: accentColour }}>
-        {this.formatWeight()}
-      </Text>
-    );
+  getReward() {
+    return this.state.currentWeight.toFixed(2) * 10;
+  }
 
+  render() {
     return (
       <View
         style={{
           flex: 1,
           justifyContent: "center",
           alignItems: "center",
-          backgroundColor: primaryColour,
-          paddingHorizontal: 20
+          backgroundColor: primaryColour
         }}
       >
-        <BoxWrapper child={weight} />
+        <Text style={{ fontSize: 18, color: "white" }}>
+          Current Item Weight
+        </Text>
+        <Text
+          style={{
+            fontSize: 72,
+            color: "white",
+            fontWeight: "800",
+            marginTop: -15
+          }}
+        >
+          {this.formatWeight()}
+        </Text>
+
+        <View
+          style={{
+            justifyContent: "center",
+            alignItems: "center",
+            marginTop: 20
+          }}
+        >
+          <Text style={{ fontSize: 18, color: "white" }}>
+            Total Reward Points
+          </Text>
+          <Text
+            style={{
+              fontSize: 72,
+              color: "white",
+              fontWeight: "800",
+              marginTop: -15
+            }}
+          >
+            {this.getReward()}
+          </Text>
+        </View>
+
         <Button
           onPress={() => this.props.navigation.navigate("Confirmation")}
-          title="push me daddy"
-          color="red"
-          accessibilityLabel="yes baby do it"
+          title="Complete Weighing"
+          color={accentColour}
+          accessibilityLabel="Complete Weighing"
         />
       </View>
     );
