@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { View } from "react-native";
 import { MapView as ExpoMapView } from "expo";
 
@@ -22,3 +23,8 @@ export default class MapView extends React.Component {
     );
   }
 }
+
+MapView.propTypes = {
+  width: PropTypes.oneOf([PropTypes.number, PropTypes.string]),
+  height: PropTypes.oneOf([PropTypes.number, PropTypes.string])
+};
