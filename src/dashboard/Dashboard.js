@@ -1,6 +1,6 @@
 import React from "react";
 import NameBox from "./namebox/NameBox";
-import DollarBox from "./dollarbox/DollarBox";
+import ValueBox from "../components/valuebox/ValueBox";
 import MapView from "../components/mapview/MapView";
 import { primaryColour } from "../style/AppTheme";
 import { StyleSheet, Text, ScrollView, View } from "react-native";
@@ -22,14 +22,24 @@ export default class Dashboard extends React.Component {
       >
         <View
           style={{
-            height: 400,
             position: "relative",
             alignItems: "center",
             justifyContent: "center"
           }}
         >
           <NameBox name="Matty" />
-          <DollarBox amount={50} />
+        </View>
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-around",
+            width: "100%",
+            marginTop: 20
+          }}
+        >
+          <ValueBox value={50} description={"points"} />
+          <ValueBox value={3} description={"day streak"} />
+          <ValueBox value={7} description={"deposits"} />
         </View>
       </ScrollView>
     );
@@ -42,5 +52,10 @@ const styles = StyleSheet.create({
     paddingLeft: 20,
     paddingRight: 20,
     flex: 1
+  },
+  layout: {
+    justifyContent: "center",
+    alignItems: "flex-start",
+    height: "100%"
   }
 });

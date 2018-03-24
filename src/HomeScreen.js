@@ -32,7 +32,7 @@ const TabScreen = TabNavigator(
       }
     }),
     tabBarOptions: {
-      activeTintColor: "tomato",
+      activeTintColor: primaryColour,
       inactiveTintColor: "gray"
     },
     tabBarComponent: TabBarBottom,
