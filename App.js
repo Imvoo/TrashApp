@@ -6,8 +6,24 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: "wowwioewjrwioe",
-      bins: "multiple bins yay"
+      // [{"id":1,"username":"Anna","age":25,"address":"20 Apple Street","points":2}]
+      user: {
+        id: 1,
+        username: "Anna2",
+        age: 25,
+        address: "20 Apple Street",
+        points: 34
+      },
+      // [{id, lat, lon, name, description, max_weight, current_weight},...]
+      bins: [{
+        id: 0,
+        lat: 0,
+        lon: 0,
+        name: "wow",
+        description: "wowee",
+        max_weight: 10,
+        current_weight: 5
+      }]
     };
   }
 

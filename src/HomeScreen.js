@@ -65,6 +65,7 @@ const StackNav = StackNavigator(
 );
 
 class StackContainer extends Component {
+<<<<<<< Updated upstream
   componentWillMount() {}
 
   render() {
@@ -82,6 +83,20 @@ class StackContainer extends Component {
       />
     );
   }
+=======
+
+    render() {
+
+        const { user, bins } = this.props;
+        
+        return (
+             <StackNav screenProps={{
+                "user": user,
+                "bins": bins
+             }} />
+        );
+    }
+>>>>>>> Stashed changes
 }
 
 export default StackContainer;
