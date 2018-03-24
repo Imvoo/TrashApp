@@ -26,7 +26,6 @@ const styles = StyleSheet.create({
     padding: 20
   },
   text: {
-    fontFamily: "Roboto",
     fontSize: 36,
     fontWeight: "bold",
     color: accentColour

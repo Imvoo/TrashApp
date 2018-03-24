@@ -27,12 +27,10 @@ const styles = StyleSheet.create({
     width: "100%"
   },
   text: {
-    fontFamily: "Roboto",
     fontSize: 18,
     color: "white"
   },
   name: {
-    fontFamily: "Roboto",
     fontSize: 50,
     color: "white",
     lineHeight: 55
