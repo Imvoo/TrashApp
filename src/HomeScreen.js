@@ -16,12 +16,6 @@ class HomeScreen1 extends React.Component {
     }
   }
 
-// export default TabNavigator({
-//     Dashboard: { screen: Dashboard },
-//     Home: { screen: HomeScreen1 },
-// });
-
-
 export default TabNavigator(
     {
         Dashboard: { screen: Dashboard },
