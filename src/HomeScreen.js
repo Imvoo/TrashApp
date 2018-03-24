@@ -6,21 +6,25 @@ import { Ionicons } from "@expo/vector-icons";
 import { StackNavigator, TabNavigator, TabBarBottom } from "react-navigation";
 import Dashboard from "./dashboard/Dashboard";
 import DepositScreen from "./deposit/DepositScreen";
-
-
+import MapScreen from "./map/MapScreen";
 
 const TabScreen = TabNavigator(
     {
         Dashboard: { screen: Dashboard },
-        Deposit: { screen: DepositScreen }
+        Deposit: { screen: DepositScreen },
+        Map : { screen: MapScreen }
     },
     {
         navigationOptions: ({ navigation }) => ({
             tabBarIcon: ({focused, tintColor}) => {
                 const { routeName } = navigation.state;
                 let iconName;
-                if (routeName === "DashBoard") {
+                if (routeName === "Dashboard") {
                     iconName = `ios-information-circle${focused ? "" : '-outline'}`;
+                } else if (routeName === "Deposit") {
+                    iconName = `ios-trash${focused ? "" : '-outline'}`;
+                } else if (routeName === "Map") {
+                    iconName = `ios-map${focused ? "" : '-outline'}`;
                 }
 
                 return <Ionicons name={iconName} size={25} color={tintColor} />;
