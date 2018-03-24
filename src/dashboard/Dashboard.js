@@ -8,11 +8,10 @@ export default class Dashboard extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Dashboard</Text>
         <NameBox name="Matty" />
         <DollarBox amount={50} />
 
-        <MapView height={300} width={"100%"} />
+        {/* <MapView height={300} width={"100%"} /> */}
       </View>
     );
   }
@@ -20,11 +19,12 @@ export default class Dashboard extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
+    backgroundColor: "#74b9ff",
+    alignItems: "flex-start",
     justifyContent: "center",
+    paddingLeft: 20,
+    paddingRight: 20,
     width: "100%",
-    height: "100%"
+    minHeight: "100%"
   }
 });

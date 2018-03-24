@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 
 export default class NameBox extends React.Component {
   constructor(props) {
@@ -9,17 +9,41 @@ export default class NameBox extends React.Component {
 
   render() {
     return (
-      <View style={{
-        flex:1,
-        alignItems: "center",
-        justifyContent: "center"
-      }}>
-        <Text>Hello</Text>
-        <Text>{this.props.name}</Text>
+      <View style={styles.view}>
+        <Text style={styles.name}>
+          Hi there{"\n"}
+          <Text style={styles.superbold}>{this.props.name}</Text>!
+        </Text>
+        <View style={styles.topspace}>
+          <Text style={styles.text}>You have recycled nothing today!</Text>
+        </View>
       </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  view: {
+    width: "100%"
+  },
+  text: {
+    fontFamily: "Roboto",
+    fontSize: 18,
+    color: "white"
+  },
+  name: {
+    fontFamily: "Roboto",
+    fontSize: 50,
+    color: "white",
+    lineHeight: 55
+  },
+  superbold: {
+    fontWeight: "800"
+  },
+  topspace: {
+    marginTop: 10
+  }
+});
 
 NameBox.propTypes = {
   name: PropTypes.string
