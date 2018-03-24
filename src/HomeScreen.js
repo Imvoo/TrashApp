@@ -42,8 +42,7 @@ const TabScreen = TabNavigator(
   }
 );
 
-export default StackNavigator(
-  {
+const StackNav = StackNavigator({
     MyTab: {
       screen: TabScreen
     }
@@ -56,5 +55,27 @@ export default StackNavigator(
         backgroundColor: primaryColour
       }
     }
-  }
+    }
 );
+
+class StackContainer extends Component {
+    componentWillMount() {
+
+    }
+
+    render() {
+        console.log(this.props);
+
+        const { user, bins } = this.props;
+        
+        console.log("stackcontainer" + this.props);
+        return (
+             <StackNav screenProps={{
+                "user": user,
+                "bins": bins
+             }} />
+        );
+    }
+}
+
+export default StackContainer;
