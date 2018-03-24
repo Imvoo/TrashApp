@@ -7,7 +7,7 @@ import { StyleSheet, Text, View } from "react-native";
 export default class Dashboard extends React.Component {
   render() {
     return (
-      <View style={styles.view}>
+      <View style={styles.container}>
         <Text>Dashboard</Text>
         <NameBox name="Matty" />
         <DollarBox amount={50} />
@@ -19,8 +19,9 @@ export default class Dashboard extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  view: {
+  container: {
     flex: 1,
+    backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
     width: "100%",
