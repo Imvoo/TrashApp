@@ -31,8 +31,6 @@ export default class Dashboard extends React.Component {
           <NameBox name="Matty" />
           <DollarBox amount={50} />
         </View>
-
-        <MapView height={300} width={"100%"} />
       </ScrollView>
     );
   }
