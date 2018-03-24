@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Text, View } from "react-native";
+import BoxWrapper from "../../components/boxwrapper/BoxWrapper";
+import { accentColour } from "../../style/AppTheme";
+import { StyleSheet, Text, View } from "react-native";
 
 export default class DollarBox extends React.Component {
   constructor(props) {
@@ -8,13 +10,27 @@ export default class DollarBox extends React.Component {
   }
 
   render() {
-    return (
-      <View>
-        <Text>{this.props.amount} Points</Text>
+    let child = (
+      <View style={styles.view}>
+        <Text style={styles.text}>{this.props.amount} Points</Text>
       </View>
     );
+
+    return <BoxWrapper child={child} />;
   }
 }
+
+const styles = StyleSheet.create({
+  view: {
+    width: "100%",
+    padding: 20
+  },
+  text: {
+    fontSize: 36,
+    fontWeight: "bold",
+    color: accentColour
+  }
+});
 
 DollarBox.propTypes = {
   amount: PropTypes.number
