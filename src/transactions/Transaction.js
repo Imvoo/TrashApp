@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+
 import { Text, View, FlatList, TouchableOpacity } from "react-native";
 
 import { primaryColour } from "../style/AppTheme";
@@ -23,6 +24,7 @@ class MyListItem extends React.PureComponent {
   }
 
 class Transaction extends Component {
+
 
     static navigationOptions = ({ navigation, navigationOptions }) => {
         const { params } = navigation.state;
@@ -63,6 +65,7 @@ class Transaction extends Component {
                 alignItems: "center",
                 backgroundColor: primaryColour
                 }}>
+
                 <FlatList
                     data = {[{
                         title: "Title text",

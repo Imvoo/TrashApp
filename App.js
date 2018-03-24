@@ -6,6 +6,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+
       // [{"id":1,"username":"Anna","age":25,"address":"20 Apple Street","points":2}]
       user: {
         id: 1,
