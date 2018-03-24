@@ -25,7 +25,24 @@ export default class Deposit extends Component {
   }
 
   getReward() {
-    return this.state.currentWeight.toFixed(2) * 10;
+    return (this.state.currentWeight.toFixed(2) * 152.23).toFixed(0);
+  }
+
+  animateChange(startTimer, endTimer, maxVal) {
+    setTimeout(() => {
+      this.setState({
+        currentWeight:
+          this.state.currentWeight + (maxVal - this.state.currentWeight) * 0.2
+      });
+
+      if (startTimer > endTimer) {
+        this.setState({
+          currentWeight: maxVal
+        });
+      } else {
+        this.animateChange(startTimer + 10, endTimer, maxVal);
+      }
+    }, 10);
   }
 
   render() {
@@ -47,6 +64,10 @@ export default class Deposit extends Component {
             color: "white",
             fontWeight: "800",
             marginTop: -15
+          }}
+          onPress={() => {
+            var randomNum = Math.random() * 5;
+            this.animateChange(0, 300, randomNum);
           }}
         >
           {this.formatWeight()}
