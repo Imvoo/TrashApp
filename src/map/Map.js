@@ -20,7 +20,7 @@ class Map extends Component {
 
     return (
       <ScrollView style={{ backgroundColor: primaryColour, height: "100%" }}>
-        <MapView height={300} width={"100%"} />
+        <MapView height={300} width={"100%"} binArray={binArray}/>
         <BinUI {...screenProps} />
       </ScrollView>
     );
