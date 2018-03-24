@@ -42,8 +42,16 @@ export default class BinItem extends React.Component {
             progress={
               this.props.item.current_weight / this.props.item.max_weight
             }
-            color={"black"}
-            unfilledColor={primaryColour}
+            formatText={() => {
+              return (
+                (
+                  this.props.item.current_weight /
+                  this.props.item.max_weight *
+                  100
+                ).toString() + "%"
+              );
+            }}
+            color={primaryColour}
             showsText={true}
             borderWidth={1}
           />
