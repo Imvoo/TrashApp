@@ -26,6 +26,6 @@ export default class MapView extends React.Component {
 }
 
 MapView.propTypes = {
-  width: PropTypes.oneOf([PropTypes.number, PropTypes.string]),
-  height: PropTypes.oneOf([PropTypes.number, PropTypes.string])
+  width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  height: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
 };
