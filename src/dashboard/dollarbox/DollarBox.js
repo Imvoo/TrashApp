@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import BoxWrapper from "../../components/boxwrapper/BoxWrapper";
+import { accentColour } from "../../style/AppTheme";
 import { StyleSheet, Text, View } from "react-native";
 
 export default class DollarBox extends React.Component {
@@ -28,7 +29,7 @@ const styles = StyleSheet.create({
     fontFamily: "Roboto",
     fontSize: 36,
     fontWeight: "bold",
-    color: "#ff7675"
+    color: accentColour
   }
 });
 
