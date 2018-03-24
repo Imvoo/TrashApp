@@ -3,7 +3,7 @@ import { StackNavigator } from "react-navigation";
 import Transaction from "./Transaction";
 import TransactionConfirmation from "./TransactionConfirmation";
 
-const StackNav = StackNavigator(
+export default StackNavigator(
     {
         Transaction: { screen: Transaction },
         TransactionConfirmation: { screen: TransactionConfirmation }
@@ -12,13 +12,3 @@ const StackNav = StackNavigator(
         headerMode: "none"
     }
 );
-
-export default class TransactionContainer extends Component {
-    render() {
-        // const { screenProps } = this.props;
-
-        return (
-            <StackNav /*screenProps={screenProps}*/ />
-        )
-    }
-}

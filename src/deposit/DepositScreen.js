@@ -5,7 +5,7 @@ import { StackNavigator } from "react-navigation";
 import Deposit from "./Deposit";
 import Confirmation from "./Confirmation";
 
-const StackNav = StackNavigator(
+export default StackNavigator(
     {
         Deposit: { screen: Deposit },
         Confirmation: { screen: Confirmation }
@@ -14,13 +14,3 @@ const StackNav = StackNavigator(
         headerMode: "none"
     }
 );
-
-export default class DepositContainer extends Component {
-    render() {
-        const { screenProps } = this.props;
-
-        return (
-            <StackNav screenProps={screenProps} />
-        )
-    }
-}

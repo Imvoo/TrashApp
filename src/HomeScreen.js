@@ -15,7 +15,7 @@ const TabScreen = TabNavigator(
     Dashboard: { screen: Dashboard },
     Deposit: { screen: DepositScreen },
     Map: { screen: MapScreen },
-    Transaction: { screen: TransactionScreen }
+    Transactions: { screen: TransactionScreen }
   },
   {
     navigationOptions: ({ navigation }) => ({
@@ -28,7 +28,7 @@ const TabScreen = TabNavigator(
           iconName = `ios-trash${focused ? "" : "-outline"}`;
         } else if (routeName === "Map") {
           iconName = `ios-map${focused ? "" : "-outline"}`;
-        } else if (routeName === "Transaction") {
+        } else if (routeName === "Transactions") {
             iconName = `ios-cart${focused ? "" : "-outline"}`;
         }
 
