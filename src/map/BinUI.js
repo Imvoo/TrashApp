@@ -7,7 +7,6 @@ class BinUI extends Component {
             <View>
                 <Text>
                     {this.props.user.username}
-                    {this.props.bins}
                 </Text>
             </View>
         );

@@ -42,6 +42,11 @@ class App extends React.Component {
     // [{"id":1,"username":"Anna","age":25,"address":"20 Apple Street","points":2}]
     this.setState({ user: data[0] });
   }
+
+  parseBinInformation(data) {
+    // [{id, lat, lon, name, description, max_weight, current_weight},...]
+    this.setState({ bins: data });
+  }
 }
 
 export default App;
