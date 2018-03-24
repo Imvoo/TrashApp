@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Text, View } from "react-native";
 
-export default class NameBox extends React.Component {
+export default class DollarBox extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -10,13 +10,12 @@ export default class NameBox extends React.Component {
   render() {
     return (
       <View>
-        <Text>Hello</Text>
-        <Text>{this.props.name}</Text>
+        <Text>{this.props.amount} Points</Text>
       </View>
     );
   }
 }
 
-NameBox.propTypes = {
-  name: PropTypes.string
+DollarBox.propTypes = {
+  amount: PropTypes.number
 };
