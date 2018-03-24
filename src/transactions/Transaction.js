@@ -1,16 +1,15 @@
 import React, { Component } from "react";
 import { Text, View } from "react-native";
 
-class BinUI extends Component {
+
+class Transaction extends Component {
     render() {
         return(
             <View>
-                <Text>
-                    {this.props.user.username}
-                </Text>
+                <Text> Placeholder </Text>
             </View>
         );
     }
 }
 
-export default BinUI;
+export default Transaction;
