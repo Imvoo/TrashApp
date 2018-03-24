@@ -129,4 +129,3 @@ export default class TransactionConfirmation extends Component {
     );
   }
 }
->>
