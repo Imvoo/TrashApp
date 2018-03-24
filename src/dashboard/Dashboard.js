@@ -15,6 +15,8 @@ export default class Dashboard extends React.Component {
   };
 
   render() {
+    const {screenProps} = this.props;
+    console.log("Dashboard:" + screenProps.user);
     return (
       <ScrollView
         style={styles.container}
@@ -27,7 +29,7 @@ export default class Dashboard extends React.Component {
             justifyContent: "center"
           }}
         >
-          <NameBox name="Matty" />
+          <NameBox name={screenProps.user.username} />
         </View>
         <View
           style={{

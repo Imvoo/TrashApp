@@ -13,10 +13,12 @@ class Map extends Component {
     }
 
     render() {
+        const { screenProps } = this.props;
+        console.log("map" + screenProps);
         return (
             <View>
                 <MapView height={300} width={"100%"}/>
-                <BinUI />
+                <BinUI {... screenProps} />
             </View>
         );
     }

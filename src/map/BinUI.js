@@ -6,7 +6,8 @@ class BinUI extends Component {
         return(
             <View>
                 <Text>
-                    bin me baby
+                    {this.props.user.username}
+                    {this.props.bins}
                 </Text>
             </View>
         );
