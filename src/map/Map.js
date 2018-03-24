@@ -14,10 +14,12 @@ class Map extends Component {
   };
 
   render() {
+    const { screenProps } = this.props;
+
     return (
       <View style={{ backgroundColor: primaryColour, height: "100%" }}>
         <MapView height={300} width={"100%"} />
-        <BinUI />
+        <BinUI {...screenProps} />
       </View>
     );
   }
