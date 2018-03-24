@@ -6,8 +6,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: "wowwioewjrwioe",
-      bins: "multiple bins yay"
+      user: [],
+      bins: []
     };
   }
 
