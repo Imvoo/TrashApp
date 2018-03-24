@@ -18,7 +18,6 @@ const StackNav = StackNavigator(
 export default class DepositContainer extends Component {
     render() {
         const { screenProps } = this.props;
-        console.log("deposit containerz; " + screenProps);
 
         return (
             <StackNav screenProps={screenProps} />

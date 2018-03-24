@@ -34,13 +34,8 @@ class App extends React.Component {
   }
 
   render() {
-    const screenProps = {
-      user: this.state.user,
-      bins: this.state.bins
-    };
 
-    console.log("app: " + screenProps);
-    return <HomeScreen {...this.state} />;
+    return <HomeScreen {...this.state} />
   }
 
   parseUserInformation(data) {
