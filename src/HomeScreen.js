@@ -5,6 +5,7 @@ import { Text, View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { TabNavigator, TabBarBottom } from "react-navigation";
 import Dashboard from "./dashboard/Dashboard";
+import DepositScreen from "./deposit/DepositScreen";
 
 class HomeScreen1 extends React.Component {
     render() {
@@ -20,6 +21,7 @@ export default TabNavigator(
     {
         Dashboard: { screen: Dashboard },
         Home: { screen: HomeScreen1 },
+        Deposit: { screen: DepositScreen }
     },
     {
         navigationOptions: ({ navigation }) => ({
