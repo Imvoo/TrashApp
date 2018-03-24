@@ -1,13 +1,11 @@
-import React from "react";
-import { StyleSheet, View } from "react-native";
-import Dashboard from "./src/dashboard/Dashboard";
+import React from 'react';
+import { StyleSheet, View, Text } from 'react-native';
+import HomeScreen from './src/HomeScreen';
 
 export default class App extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Dashboard />
-      </View>
+      <HomeScreen />
     );
   }
 }
@@ -15,7 +13,7 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#DC143C",
     alignItems: "center",
     justifyContent: "center"
   }
