@@ -15,11 +15,10 @@ export default class BoxWrapper extends React.Component {
 const styles = StyleSheet.create({
   box: {
     width: "100%",
-    maxHeight: 50,
     borderRadius: 20,
     marginTop: 30,
     marginBottom: 30,
-    flex: 1,
+    flex: 0,
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "white"
