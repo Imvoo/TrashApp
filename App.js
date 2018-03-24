@@ -15,15 +15,17 @@ class App extends React.Component {
         points: 34
       },
       // [{id, lat, lon, name, description, max_weight, current_weight},...]
-      bins: [{
-        id: 0,
-        lat: 0,
-        lon: 0,
-        name: "wow",
-        description: "wowee",
-        max_weight: 10,
-        current_weight: 5
-      }]
+      bins: [
+        {
+          id: 0,
+          lat: 0,
+          lon: 0,
+          name: "wow",
+          description: "wowee",
+          max_weight: 10,
+          current_weight: 5
+        }
+      ]
     };
   }
 

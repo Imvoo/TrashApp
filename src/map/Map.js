@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import MapView from "../components/mapview/MapView";
 import { primaryColour } from "../style/AppTheme";
-import { View } from "react-native";
+import { ScrollView } from "react-native";
 import BinUI from "./BinUI";
 
 class Map extends Component {
@@ -19,10 +19,10 @@ class Map extends Component {
     console.log("binArray: " + binArray);
 
     return (
-      <View style={{ backgroundColor: primaryColour, height: "100%" }}>
+      <ScrollView style={{ backgroundColor: primaryColour, height: "100%" }}>
         <MapView height={300} width={"100%"} />
         <BinUI {...screenProps} />
-      </View>
+      </ScrollView>
     );
   }
 }

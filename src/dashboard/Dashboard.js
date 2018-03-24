@@ -53,7 +53,7 @@ export default class Dashboard extends React.Component {
             marginTop: 20
           }}
         >
-          <ValueBox value={50} description={"points"} />
+          <ValueBox value={screenProps.user.points} description={"points"} />
           <ValueBox value={3} description={"day streak"} />
           <ValueBox value={7} description={"deposits"} />
         </View>
