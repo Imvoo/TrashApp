@@ -34,18 +34,18 @@ class App extends React.Component {
   }
 
   render() {
-    const screenProps = {
-      user: this.state.user,
-      bins: this.state.bins
-    };
 
-    console.log("app: " + screenProps);
-    return <HomeScreen {...this.state} />;
+    return <HomeScreen {...this.state} />
   }
 
   parseUserInformation(data) {
     // [{"id":1,"username":"Anna","age":25,"address":"20 Apple Street","points":2}]
     this.setState({ user: data[0] });
+  }
+
+  parseBinInformation(data) {
+    // [{id, lat, lon, name, description, max_weight, current_weight},...]
+    this.setState({ bins: data });
   }
 }
 

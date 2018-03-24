@@ -8,12 +8,14 @@ import { StackNavigator, TabNavigator, TabBarBottom } from "react-navigation";
 import Dashboard from "./dashboard/Dashboard";
 import DepositScreen from "./deposit/DepositScreen";
 import MapScreen from "./map/MapScreen";
+import TransactionScreen from "./transactions/TransactionScreen";
 
 const TabScreen = TabNavigator(
   {
     Dashboard: { screen: Dashboard },
     Deposit: { screen: DepositScreen },
-    Map: { screen: MapScreen }
+    Map: { screen: MapScreen },
+    Transaction: { screen: TransactionScreen }
   },
   {
     navigationOptions: ({ navigation }) => ({
@@ -26,6 +28,8 @@ const TabScreen = TabNavigator(
           iconName = `ios-trash${focused ? "" : "-outline"}`;
         } else if (routeName === "Map") {
           iconName = `ios-map${focused ? "" : "-outline"}`;
+        } else if (routeName === "Transaction") {
+            iconName = `ios-cart${focused ? "" : "-outline"}`;
         }
 
         return <Ionicons name={iconName} size={25} color={tintColor} />;
@@ -38,7 +42,8 @@ const TabScreen = TabNavigator(
     tabBarComponent: TabBarBottom,
     tabBarPosition: "bottom",
     animationEnabled: true,
-    swipeEnabled: true
+    swipeEnabled: true,
+    // initialRouteName: "Dashboard"
   }
 );
 
