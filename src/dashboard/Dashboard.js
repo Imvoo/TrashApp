@@ -11,7 +11,7 @@ export default class Dashboard extends React.Component {
     return {
         title: "Home"
     };
-}
+  }
 
   render() {
     return (
