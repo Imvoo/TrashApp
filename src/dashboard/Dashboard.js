@@ -6,12 +6,15 @@ import { primaryColour } from "../style/AppTheme";
 import { StyleSheet, Text, ScrollView, View } from "react-native";
 
 export default class Dashboard extends React.Component {
+
   static navigationOptions = ({ navigation, navigationOptions }) => {
     const { params } = navigation.state;
 
     return {
       title: "Home"
     };
+
+
   };
 
   render() {
@@ -32,7 +35,10 @@ export default class Dashboard extends React.Component {
           <DollarBox amount={50} />
         </View>
 
-        <MapView height={300} width={"100%"} />
+        <MapView height={300} width={"100%"}>
+
+
+        </MapView>
       </ScrollView>
     );
   }

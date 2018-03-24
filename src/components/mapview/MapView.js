@@ -1,7 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { View } from "react-native";
+import { View, Image } from "react-native";
 import { MapView as ExpoMapView } from "expo";
+import bin from "../../images/bin2.png";
 
 export default class MapView extends React.Component {
   constructor(props) {
@@ -18,12 +19,30 @@ export default class MapView extends React.Component {
             longitude: -122.4324,
             latitudeDelta: 0.0922,
             longitudeDelta: 0.0421
+          }} >
+
+          <ExpoMapView.Marker
+            coordinate = {{
+              latitude: 37.78825,
+              longitude: -122.4324,
+              latitudeDelta: 0.0922,
+              longitudeDelta: 0.0421
           }}
-        />
+
+          title={'help'}
+          description={'help'}>
+          <Image source={bin} style={{ width: 50, height: 50 }} />
+
+          </ExpoMapView.Marker>
+
+
+        </ExpoMapView>
+
       </View>
     );
   }
-}
+};
+
 
 MapView.propTypes = {
   width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
