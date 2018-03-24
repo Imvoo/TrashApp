@@ -12,7 +12,7 @@ class App extends React.Component {
   }
 
   componentWillMount() {
-    fetch("http://trash.imkevinvo.com:3456/user/1")
+    fetch("http://trash.imkevinvo.com:5000/user/1")
       .then(response => {
         response.json().then(data => {
           this.parseUserInformation(data);
@@ -34,8 +34,7 @@ class App extends React.Component {
   }
 
   render() {
-
-    return <HomeScreen {...this.state} />
+    return <HomeScreen {...this.state} />;
   }
 
   parseUserInformation(data) {
