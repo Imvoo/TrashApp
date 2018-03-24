@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
-import Dashboard from "./src/Dashboard";
+import Dashboard from "./src/dashboard/Dashboard";
 
 export default class App extends React.Component {
   render() {
