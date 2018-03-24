@@ -7,6 +7,7 @@ export default class MapView extends React.Component {
   constructor(props) {
     super(props);
   }
+
   render() {
     return (
       <View style={{ width: this.props.width, height: this.props.height }}>
