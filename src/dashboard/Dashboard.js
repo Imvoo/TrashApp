@@ -1,5 +1,6 @@
 import React from "react";
 import NameBox from "./namebox/NameBox";
+import DollarBox from "./dollarbox/DollarBox";
 import { StyleSheet, Text, View } from "react-native";
 
 
@@ -8,7 +9,8 @@ export default class Dashboard extends React.Component {
     return (
       <View style={styles.container}>
         <Text>Dashboard</Text>
-        <NameBox />
+        <NameBox name="Matty" />
+        <DollarBox amount={50} />
       </View>
     );
   }
