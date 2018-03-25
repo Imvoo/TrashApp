@@ -9,14 +9,14 @@ export default class TransactionConfirmation extends Component {
 
     this.state = {
       currentPoints: 0,
-      currentCost: 0,
+      currentCost: 0
     };
   }
 
   static navigationOptions = ({ navigation, navigationOptions }) => {
     const { params } = navigation.state;
     return {
-      title: "Confirmation"
+      title: "Redeem a Voucher - Confirmation"
     };
   };
 
@@ -33,8 +33,8 @@ export default class TransactionConfirmation extends Component {
       this.setState({
         currentPoints:
           this.state.currentPoints + (maxVal - this.state.currentPoints) * 0.2,
-        currentCost: 
-            this.state.currentCost - (this.state.currentPoints - maxVal) * 0.2
+        currentCost:
+          this.state.currentCost - (this.state.currentPoints - maxVal) * 0.2
       });
 
       if (startTimer > endTimer) {
@@ -49,21 +49,22 @@ export default class TransactionConfirmation extends Component {
   }
 
   componentWillMount() {
-      const { navigation } = this.props;
-      this.setState( { currentPoints: navigation.state.params.user.points,
-    currentCost: parseInt(navigation.state.params.itemCost) } );
+    const { navigation } = this.props;
+    this.setState({
+      currentPoints: navigation.state.params.user.points,
+      currentCost: parseInt(navigation.state.params.itemCost)
+    });
   }
 
   attemptToPay(points, cost) {
     if (cost > points) {
-        return;
+      return;
     } else {
-        this.animateChange(0, 300, points - cost);
+      this.animateChange(0, 300, points - cost);
     }
   }
 
   render() {
-
     return (
       <View
         style={{
@@ -94,9 +95,7 @@ export default class TransactionConfirmation extends Component {
             marginTop: 20
           }}
         >
-          <Text style={{ fontSize: 18, color: "white" }}>
-            Cost
-          </Text>
+          <Text style={{ fontSize: 18, color: "white" }}>Cost</Text>
           <Text
             style={{
               fontSize: 72,
@@ -108,33 +107,43 @@ export default class TransactionConfirmation extends Component {
             {this.getCost()}
           </Text>
         </View>
-        <View style={{
+        <View
+          style={{
             flexDirection: "row",
-            alignItems: "center",
-        }}>
-            <View style={{
-                marginHorizontal:20,
-                justifyContent: "space-between"
-            }} >
+            alignItems: "center"
+          }}
+        >
+          <View
+            style={{
+              marginHorizontal: 20,
+              justifyContent: "space-between"
+            }}
+          >
             <Button
-                onPress={() => this.props.navigation.goBack(null)}
-                title="Go Back"
-                color={accentColour}
-                accessiblityLabel="Go Back"
-             />
-             </View>
-             <View style={{
-                 marginHorizontal:20,
-                 justifyContent: "space-between"
-                 }} >
-                <Button
-                onPress={() => {
-                     this.attemptToPay(this.state.currentPoints, this.state.currentCost)
-                          }}
-                title="Confirm"
-                color={accentColour}
-                accessibilityLabel="Confirm" />
-            </View>
+              onPress={() => this.props.navigation.goBack(null)}
+              title="Go Back"
+              color={accentColour}
+              accessiblityLabel="Go Back"
+            />
+          </View>
+          <View
+            style={{
+              marginHorizontal: 20,
+              justifyContent: "space-between"
+            }}
+          >
+            <Button
+              onPress={() => {
+                this.attemptToPay(
+                  this.state.currentPoints,
+                  this.state.currentCost
+                );
+              }}
+              title="Redeem"
+              color={accentColour}
+              accessibilityLabel="Redeem"
+            />
+          </View>
         </View>
       </View>
     );
