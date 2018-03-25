@@ -28,6 +28,15 @@ export default class TransactionConfirmation extends Component {
     return this.state.currentCost.toFixed(0);
   }
 
+  updateTransactionAmount() {
+    const { screenProps } = this.props;
+
+      this.setState({
+          currentPoints: screenProps.user.points
+      });
+
+  }
+
   animateChange(startTimer, endTimer, maxVal) {
     setTimeout(() => {
       this.setState({
@@ -42,6 +51,9 @@ export default class TransactionConfirmation extends Component {
           currentPoints: maxVal,
           currentCost: 0
         });
+        const { navigation, screenProps } = this.props;
+        setTimeout(()=>{navigation.goBack(null);},600);
+
       } else {
         this.animateChange(startTimer + 10, endTimer, maxVal);
       }
@@ -49,8 +61,9 @@ export default class TransactionConfirmation extends Component {
   }
 
   componentWillMount() {
-      const { navigation } = this.props;
-      this.setState( { currentPoints: navigation.state.params.user.points,
+      const { navigation, screenProps } = this.props;
+      
+      this.setState( { currentPoints: screenProps.user.points,
     currentCost: parseInt(navigation.state.params.itemCost) } );
   }
 
@@ -59,10 +72,14 @@ export default class TransactionConfirmation extends Component {
         return;
     } else {
         this.animateChange(0, 300, points - cost);
+        const { screenProps } = this.props;
+        console.log(screenProps);
+        screenProps.addPoints(-cost);
     }
   }
 
   render() {
+      const { screenProps } = this.props;
 
     return (
       <View

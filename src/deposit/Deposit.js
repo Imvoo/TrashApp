@@ -39,6 +39,9 @@ export default class Deposit extends Component {
         this.setState({
           currentWeight: maxVal
         });
+        const { screenProps } = this.props;
+        screenProps.addPoints(this.getReward());
+        screenProps.addRecycleCount(this.state.currentWeight);
       } else {
         this.animateChange(startTimer + 10, endTimer, maxVal);
       }
