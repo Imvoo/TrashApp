@@ -2,26 +2,9 @@ import React, { Component } from "react";
 
 import { Text, View, FlatList, TouchableOpacity } from "react-native";
 
-import { primaryColour } from "../style/AppTheme";
+import TransactionItem from "../components/transactionitem/TransactionItem";
 
-class MyListItem extends React.PureComponent {
-    _onPress = () => {
-      this.props.onPressItem(this.props.id);
-    };
-  
-    render() {
-      const textColor = this.props.selected ? "red" : "black";
-      return (
-        <TouchableOpacity onPress={this._onPress}>
-          <View>
-            <Text style={{ color: textColor }}>
-              {this.props.title}
-            </Text>
-          </View>
-        </TouchableOpacity>
-      );
-    }
-  }
+import { primaryColour } from "../style/AppTheme";
 
 class Transaction extends Component {
 
@@ -34,62 +17,54 @@ class Transaction extends Component {
         };
       };
     
-    _keyExtractor = (item, index) => item.id;
-    
-    _onPressItem = (id) => {
+    onPressItem(transactionItem) {
         const { screenProps } = this.props;
         
         this.props.navigation.navigate("TransactionConfirmation", {
-            itemId: id,
-            itemCost: id,
+            itemCost: transactionItem.input,
             user: screenProps.user
         })
     }
 
-    _renderItem = ({item}) => (
-        <MyListItem
-            id={item.id}
-            onPressItem={this._onPressItem}
-            title={item.title}
-            />
-    );
-
     render() {
-        const { screenProps } = this.props;
+        const transactionArray = [
+            {
+                transactionId:0,
+                input: "200",
+                output: "5% off"
+            },
+            {
+                transactionId:1,
+                input: "400",
+                output: "15% off"
+            },
+            {
+                transactionId:2,
+                input: "800",
+                output: "35% off"
+            },
+            {   transactionId:3,
+                input: "1000",
+                output: "50% off"
+            }
+        ]
 
-        return(
-            <View
-                style={{
-                flex: 1,
-                justifyContent: "center",
-                alignItems: "center",
-                backgroundColor: primaryColour
-                }}>
+        let allTransactions = transactionArray.map(transactionItem => {
+            return (
+                <TransactionItem
+                    key={transactionItem.transactionId}
+                    item={transactionItem}
+                    onPress={(transactionItem) => {this.onPressItem(transactionItem)}} />
+            );
+        })
 
-                <FlatList
-                    data = {[{
-                        title: "Title text",
-                        key: "item1",
-                        cost: 2000,
-                        id: 0
-                    },
-                    {
-                        title: "Title text",
-                        key: "item2",
-                        cost: 3500,
-                        id: 1
-                    },{
-                        title: "Title text",
-                        key: "item3",
-                        cost: 5000,
-                        id: 2
-                    }]}
-                    keyExtractor = {this._keyExtractor}
-                    renderItem = {this._renderItem}
-                    />
-                
+        return (
+            <View style={{ backgroundColor:primaryColour, height: "100%" }} >
+                <View style={{ marginHorizontal: 20, marginVertical: 15 }}>
+                {allTransactions != null ? allTransactions : null}
+                </View>
             </View>
-        );
+          );
     }
 }
 

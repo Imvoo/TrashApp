@@ -65,6 +65,8 @@ class App extends React.Component {
     // [{id, lat, lon, name, description, max_weight, current_weight},...]
     this.setState({ bins: data });
   }
+
+  
 }
 
 export default App;

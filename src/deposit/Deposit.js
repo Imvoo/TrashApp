@@ -95,12 +95,12 @@ export default class Deposit extends Component {
           </Text>
         </View>
 
-        <Button
+        {/* <Button
           onPress={() => this.props.navigation.navigate("Confirmation")}
           title="Complete Weighing"
           color={accentColour}
           accessibilityLabel="Complete Weighing"
-        />
+        /> */}
       </View>
     );
   }

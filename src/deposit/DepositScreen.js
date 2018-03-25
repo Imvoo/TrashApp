@@ -8,7 +8,7 @@ import Confirmation from "./Confirmation";
 export default StackNavigator(
     {
         Deposit: { screen: Deposit },
-        Confirmation: { screen: Confirmation }
+        // Confirmation: { screen: Confirmation }
     },
     {
         headerMode: "none"
