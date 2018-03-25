@@ -17,7 +17,13 @@ export default class NameBox extends React.Component {
           <Text style={styles.superbold}>{this.props.name}</Text>!
         </Text>
         <View style={styles.topspace}>
-          <Text style={styles.text}>You have recycled {recycleCount > 0? recycleCount : "nothing"} today!</Text>
+          <Text style={styles.text}>
+            {"You have recycled "}
+            {recycleCount > 0
+              ? recycleCount.toFixed(2) + " kg"
+              : "nothing"}{" "}
+            today!
+          </Text>
         </View>
       </View>
     );
