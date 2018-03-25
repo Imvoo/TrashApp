@@ -26,7 +26,8 @@ class App extends React.Component {
           max_weight: 10,
           current_weight: 5
         }
-      ]
+      ],
+      recycleCount: 0
     };
   }
 
@@ -53,7 +54,26 @@ class App extends React.Component {
   }
 
   render() {
-    return <HomeScreen {...this.state} />;
+    return <HomeScreen {...this.state} addPoints={(pointsAdded) => {this.addPoints(pointsAdded)}} 
+      addRecycleCount={(recycleAdded) => {this.addRecycleCount(recycleAdded)}} />;
+  }
+
+  addRecycleCount(recycleAdded) {
+    console.log(this.state.recycleCount);
+    console.log(recycleAdded);
+    const newRecycleCount = this.state.recycleCount + recycleAdded;
+    console.log(newRecycleCount);
+    this.setState({recycleCount : newRecycleCount});
+  }
+
+  addPoints(pointsAdded) {
+    const newUser = this.state.user;
+
+    const newPoints = Number.parseInt(newUser.points) + Number.parseInt(pointsAdded);
+
+    newUser.points = newPoints;
+
+    this.setState({user: newUser});
   }
 
   parseUserInformation(data) {
