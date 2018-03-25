@@ -70,14 +70,17 @@ class StackContainer extends Component {
   render() {
     console.log(this.props);
 
-    const { user, bins } = this.props;
+    const { user, bins, addPoints, addRecycleCount, recycleCount } = this.props;
 
     console.log("stackcontainer" + this.props);
     return (
       <StackNav
         screenProps={{
-          user: user,
-          bins: bins
+          user,
+          bins,
+          addPoints,
+          addRecycleCount,
+          recycleCount
         }}
       />
     );
