@@ -20,6 +20,7 @@ class Transaction extends Component {
 
     this.props.navigation.navigate("TransactionConfirmation", {
       itemCost: transactionItem.input,
+      transactionItem: transactionItem,
       user: screenProps.user
     });
   }

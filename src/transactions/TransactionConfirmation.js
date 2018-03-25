@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import BoxWrapper from "../components/boxwrapper/BoxWrapper";
+import TransactionItem from "../components/transactionitem/TransactionItem";
 import { Text, View, Button } from "react-native";
 import { primaryColour, accentColour } from "../style/AppTheme";
 
@@ -50,6 +51,7 @@ export default class TransactionConfirmation extends Component {
 
   componentWillMount() {
     const { navigation } = this.props;
+
     this.setState({
       currentPoints: navigation.state.params.user.points,
       currentCost: parseInt(navigation.state.params.itemCost)
@@ -69,39 +71,54 @@ export default class TransactionConfirmation extends Component {
       <View
         style={{
           flex: 1,
-          justifyContent: "center",
+          justifyContent: "space-around",
           alignItems: "center",
           backgroundColor: primaryColour
         }}
       >
-        <Text style={{ fontSize: 18, color: "white" }}>
-          Total Reward Points
-        </Text>
-        <Text
-          style={{
-            fontSize: 72,
-            color: "white",
-            fontWeight: "800",
-            marginTop: -15
-          }}
-        >
-          {this.formatPoints()}
-        </Text>
-
         <View
           style={{
-            justifyContent: "center",
-            alignItems: "center",
-            marginTop: 20
+            marginTop: 15
           }}
         >
-          <Text style={{ fontSize: 18, color: "white" }}>Cost</Text>
+          <TransactionItem
+            item={this.props.navigation.state.params.transactionItem}
+            onPress={null}
+          />
+        </View>
+        <View
+          style={{
+            alignItems: "flex-start",
+            justifyContent: "flex-start"
+          }}
+        >
+          <Text style={{ fontSize: 12, color: "white", marginBottom: -10 }}>
+            Balance
+          </Text>
           <Text
             style={{
-              fontSize: 72,
+              fontSize: 50,
               color: "white",
-              fontWeight: "800",
-              marginTop: -15
+              fontWeight: "800"
+            }}
+          >
+            {this.formatPoints()}
+          </Text>
+          <Text
+            style={{
+              fontSize: 12,
+              color: "white",
+              marginTop: 15,
+              marginBottom: -10
+            }}
+          >
+            Voucher Cost
+          </Text>
+          <Text
+            style={{
+              fontSize: 50,
+              color: "white",
+              fontWeight: "800"
             }}
           >
             {this.getCost()}
@@ -122,7 +139,7 @@ export default class TransactionConfirmation extends Component {
             <Button
               onPress={() => this.props.navigation.goBack(null)}
               title="Go Back"
-              color={accentColour}
+              color={"rgba(255,255,255,0.5)"}
               accessiblityLabel="Go Back"
             />
           </View>

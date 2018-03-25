@@ -53,7 +53,13 @@ export default class TransactionItem extends React.Component {
     );
 
     return (
-      <TouchableOpacity onPress={() => this.props.onPress(this.props.item)}>
+      <TouchableOpacity
+        onPress={() => {
+          this.props.onPress != null
+            ? this.props.onPress(this.props.item)
+            : null;
+        }}
+      >
         <BoxWrapper child={child} />
       </TouchableOpacity>
     );
