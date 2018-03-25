@@ -74,10 +74,9 @@ export default class TransactionConfirmation extends Component {
     if (cost > points) {
       return;
     } else {
-      this.animateChange(0, 300, points - cost);
-      const { screenProps } = this.props;
-      console.log(screenProps);
-      screenProps.addPoints(-cost);
+        this.animateChange(0, 300, points - cost);
+        const { screenProps } = this.props;
+        screenProps.addPoints(-cost);
     }
   }
 

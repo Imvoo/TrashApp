@@ -42,6 +42,7 @@ export default class Deposit extends Component {
         const { screenProps } = this.props;
         screenProps.addPoints(this.getReward());
         screenProps.addRecycleCount(this.state.currentWeight);
+        screenProps.incrementDepositCount();
       } else {
         this.animateChange(startTimer + 10, endTimer, maxVal);
       }

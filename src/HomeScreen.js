@@ -68,11 +68,9 @@ class StackContainer extends Component {
   componentWillMount() {}
 
   render() {
-    console.log(this.props);
 
-    const { user, bins, addPoints, addRecycleCount, recycleCount } = this.props;
+    const { user, bins, addPoints, addRecycleCount, recycleCount, depositCount, incrementDepositCount } = this.props;
 
-    console.log("stackcontainer" + this.props);
     return (
       <StackNav
         screenProps={{
@@ -80,7 +78,9 @@ class StackContainer extends Component {
           bins,
           addPoints,
           addRecycleCount,
-          recycleCount
+          recycleCount,
+          depositCount,
+          incrementDepositCount
         }}
       />
     );
