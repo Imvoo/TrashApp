@@ -6,8 +6,8 @@ class Bottle extends Component {
     super(props);
 
     this.state = {
-      bottleX: new Animated.Value(-100),
-      bottleY: new Animated.Value(-500),
+      bottleX: new Animated.Value(-300 + Math.random() * 500),
+      bottleY: new Animated.Value(-400),
       bottleSpin: new Animated.Value(0),
       bottleOpacity: new Animated.Value(1)
     };
