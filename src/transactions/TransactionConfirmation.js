@@ -8,7 +8,8 @@ export default class TransactionConfirmation extends Component {
     super(props);
 
     this.state = {
-      currentPoints: 0
+      currentPoints: 0,
+      currentCost: 0,
     };
   }
 
@@ -20,23 +21,26 @@ export default class TransactionConfirmation extends Component {
   };
 
   formatPoints() {
-    return this.state.currentPoints.toString();
+    return this.state.currentPoints.toFixed(0).toString();
   }
 
   getCost() {
-    return (this.state.currentPoints.toFixed(2) * 152.23).toFixed(0);
+    return this.state.currentCost.toFixed(0);
   }
 
   animateChange(startTimer, endTimer, maxVal) {
     setTimeout(() => {
       this.setState({
         currentPoints:
-          this.state.currentWeight + (maxVal - this.state.currentPoints) * 0.2
+          this.state.currentPoints + (maxVal - this.state.currentPoints) * 0.2,
+        currentCost: 
+            this.state.currentCost - (this.state.currentPoints - maxVal) * 0.2
       });
 
       if (startTimer > endTimer) {
         this.setState({
-          currentPoints: maxVal
+          currentPoints: maxVal,
+          currentCost: 0
         });
       } else {
         this.animateChange(startTimer + 10, endTimer, maxVal);
@@ -46,11 +50,19 @@ export default class TransactionConfirmation extends Component {
 
   componentWillMount() {
       const { navigation } = this.props;
-      this.setState( { currentPoints: navigation.state.params.user.points } );
+      this.setState( { currentPoints: navigation.state.params.user.points,
+    currentCost: parseInt(navigation.state.params.itemCost) } );
+  }
+
+  attemptToPay(points, cost) {
+    if (cost > points) {
+        return;
+    } else {
+        this.animateChange(0, 300, points - cost);
+    }
   }
 
   render() {
-    
 
     return (
       <View
@@ -70,9 +82,6 @@ export default class TransactionConfirmation extends Component {
             color: "white",
             fontWeight: "800",
             marginTop: -15
-          }}
-          onPress={() => {
-            this.animateChange(0, 300, randomNum);
           }}
         >
           {this.formatPoints()}
@@ -109,9 +118,9 @@ export default class TransactionConfirmation extends Component {
             }} >
             <Button
                 onPress={() => this.props.navigation.goBack(null)}
-                title="Cancel"
+                title="Go Back"
                 color={accentColour}
-                accessiblityLabel="Cancel"
+                accessiblityLabel="Go Back"
              />
              </View>
              <View style={{
@@ -119,7 +128,9 @@ export default class TransactionConfirmation extends Component {
                  justifyContent: "space-between"
                  }} >
                 <Button
-                onPress={() => this.props.navigation.navigate("Confirmation")}
+                onPress={() => {
+                     this.attemptToPay(this.state.currentPoints, this.state.currentCost)
+                          }}
                 title="Confirm"
                 color={accentColour}
                 accessibilityLabel="Confirm" />
