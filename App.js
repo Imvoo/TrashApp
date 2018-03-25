@@ -27,7 +27,8 @@ class App extends React.Component {
           current_weight: 5
         }
       ],
-      recycleCount: 0
+      recycleCount: 0,
+      depositCount: 0
     };
   }
 
@@ -55,14 +56,17 @@ class App extends React.Component {
 
   render() {
     return <HomeScreen {...this.state} addPoints={(pointsAdded) => {this.addPoints(pointsAdded)}} 
-      addRecycleCount={(recycleAdded) => {this.addRecycleCount(recycleAdded)}} />;
+      addRecycleCount={(recycleAdded) => {this.addRecycleCount(recycleAdded)}}
+      incrementDepositCount={() => {this.incrementDepositCount()}}
+       />;
+  }
+
+  incrementDepositCount() {
+    this.setState({depositCount:(this.state.depositCount+1)});
   }
 
   addRecycleCount(recycleAdded) {
-    console.log(this.state.recycleCount);
-    console.log(recycleAdded);
     const newRecycleCount = this.state.recycleCount + recycleAdded;
-    console.log(newRecycleCount);
     this.setState({recycleCount : newRecycleCount});
   }
 
