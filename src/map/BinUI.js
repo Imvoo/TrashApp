@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import BinItem from "../components/binitem/BinItem";
+import { getDistanceFromLatLonInKm } from "../utils";
 import { Text, View } from "react-native";
 import { primaryColour, accentColour } from "../style/AppTheme";
 
@@ -15,17 +16,37 @@ class BinUI extends Component {
     // default choose first bin
     const bin = binArray[0];
 
-    let allBins = this.props.bins.map(binItem => {
-      console.log(binItem);
-      return (
-        <BinItem
-          key={binItem.id}
-          item={binItem}
-          currentLat={-37.7980604}
-          currentLon={144.9595426}
-        />
-      );
-    });
+    let currentLat = -37.7980604;
+    let currentLon = 144.9595426;
+
+    let allBins = this.props.bins
+      .sort((binOne, binTwo) => {
+        let distance = getDistanceFromLatLonInKm(
+          currentLat,
+          currentLon,
+          binOne.lat,
+          binOne.lon
+        ).toFixed(1);
+
+        let distance2 = getDistanceFromLatLonInKm(
+          currentLat,
+          currentLon,
+          binTwo.lat,
+          binTwo.lon
+        ).toFixed(1);
+
+        return distance - distance2;
+      })
+      .map(binItem => {
+        let distance = getDistanceFromLatLonInKm(
+          currentLat,
+          currentLon,
+          binItem.lat,
+          binItem.lon
+        ).toFixed(1);
+
+        return <BinItem key={binItem.id} item={binItem} distance={distance} />;
+      });
 
     console.log("current_weight" + bin.current_weight);
     console.log("max_weight" + bin.max_weight);
