@@ -16,7 +16,6 @@ class Map extends Component {
   render() {
     const { screenProps } = this.props;
     const binArray = screenProps.bins;
-    console.log("binArray: " + binArray);
 
     return (
       <ScrollView style={{ backgroundColor: primaryColour, height: "100%" }}>

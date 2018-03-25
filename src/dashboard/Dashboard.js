@@ -17,7 +17,6 @@ export default class Dashboard extends React.Component {
 
   render() {
     const { screenProps } = this.props;
-    console.log("Dashboard:" + screenProps.user);
     let bottles = [];
 
     for (let i = 0; i < 3; i++) {
@@ -55,7 +54,7 @@ export default class Dashboard extends React.Component {
         >
           <ValueBox value={screenProps.user.points} description={"points"} />
           <ValueBox value={3} description={"day streak"} />
-          <ValueBox value={7} description={"deposits"} />
+          <ValueBox value={screenProps.depositCount} description={"deposits"} />
         </View>
       </ScrollView>
     );
