@@ -22,7 +22,7 @@ class BinUI extends Component {
           key={binItem.id}
           item={binItem}
           currentLat={-37.7980604}
-          currentLon={-144.9595426}
+          currentLon={144.9595426}
         />
       );
     });

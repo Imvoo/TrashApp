@@ -57,17 +57,37 @@ export default class BinItem extends React.Component {
           />
           <Text>full</Text>
         </View>
-        <View>
-          <Text style={styles.text}>{this.props.item.name}</Text>
+        <View style={{ flex: 1 }}>
+          <Text style={styles.text && { color: "rgba(0,0,0,0.2)" }}>
+            {this.props.item.name}
+          </Text>
           <Text style={styles.text}>{this.props.item.description}</Text>
-          <Text style={styles.text}>
+        </View>
+        <View
+          style={{
+            flex: 0,
+            marginLeft: 10,
+            alignItems: "center",
+            justifyContent: "center"
+          }}
+        >
+          <Text
+            style={
+              styles.text && {
+                color: "rgba(0,0,0,0.8)",
+                fontSize: 35,
+                fontWeight: "800"
+              }
+            }
+          >
             {this.getDistanceFromLatLonInKm(
               this.props.currentLat,
               this.props.currentLon,
               this.props.item.lat,
               this.props.item.lon
-            ).toFixed(2)}
+            ).toFixed(1)}
           </Text>
+          <Text style={styles.text && { marginTop: -10 }}>km</Text>
         </View>
       </View>
     );
