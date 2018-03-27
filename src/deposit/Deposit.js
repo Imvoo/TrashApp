@@ -59,6 +59,18 @@ export default class Deposit extends Component {
           backgroundColor: primaryColour
         }}
       >
+        <Text
+          style={{
+            fontSize: 12,
+            color: "white",
+            width: 300,
+            textAlign: "center",
+            marginBottom: 20
+          }}
+        >
+          Place your items inside the bin and the sensor will calculate the
+          total weight.
+        </Text>
         <Text style={{ fontSize: 18, color: "white" }}>
           Current Item Weight
         </Text>
