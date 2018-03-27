@@ -6,11 +6,10 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-
       // [{"id":1,"username":"Anna","age":25,"address":"20 Apple Street","points":2}]
       user: {
         id: 1,
-        username: "Anna2",
+        username: "Anna",
         age: 25,
         address: "20 Apple Street",
         points: 34
@@ -21,8 +20,8 @@ class App extends React.Component {
           id: 0,
           lat: 0,
           lon: 0,
-          name: "wow",
-          description: "wowee",
+          name: "Bin #1",
+          description: "This bin accepts plastic products only.",
           max_weight: 10,
           current_weight: 5
         }
@@ -55,29 +54,40 @@ class App extends React.Component {
   }
 
   render() {
-    return <HomeScreen {...this.state} addPoints={(pointsAdded) => {this.addPoints(pointsAdded)}} 
-      addRecycleCount={(recycleAdded) => {this.addRecycleCount(recycleAdded)}}
-      incrementDepositCount={() => {this.incrementDepositCount()}}
-       />;
+    return (
+      <HomeScreen
+        {...this.state}
+        addPoints={pointsAdded => {
+          this.addPoints(pointsAdded);
+        }}
+        addRecycleCount={recycleAdded => {
+          this.addRecycleCount(recycleAdded);
+        }}
+        incrementDepositCount={() => {
+          this.incrementDepositCount();
+        }}
+      />
+    );
   }
 
   incrementDepositCount() {
-    this.setState({depositCount:(this.state.depositCount+1)});
+    this.setState({ depositCount: this.state.depositCount + 1 });
   }
 
   addRecycleCount(recycleAdded) {
     const newRecycleCount = this.state.recycleCount + recycleAdded;
-    this.setState({recycleCount : newRecycleCount});
+    this.setState({ recycleCount: newRecycleCount });
   }
 
   addPoints(pointsAdded) {
     const newUser = this.state.user;
 
-    const newPoints = Number.parseInt(newUser.points) + Number.parseInt(pointsAdded);
+    const newPoints =
+      Number.parseInt(newUser.points) + Number.parseInt(pointsAdded);
 
     newUser.points = newPoints;
 
-    this.setState({user: newUser});
+    this.setState({ user: newUser });
   }
 
   parseUserInformation(data) {
@@ -89,8 +99,6 @@ class App extends React.Component {
     // [{id, lat, lon, name, description, max_weight, current_weight},...]
     this.setState({ bins: data });
   }
-
-  
 }
 
 export default App;

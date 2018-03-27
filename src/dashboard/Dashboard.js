@@ -42,7 +42,10 @@ export default class Dashboard extends React.Component {
             justifyContent: "center"
           }}
         >
-          <NameBox name={screenProps.user.username} recycleCount={screenProps.recycleCount }/>
+          <NameBox
+            name={screenProps.user.username}
+            recycleCount={screenProps.recycleCount}
+          />
         </View>
         <View
           style={{
