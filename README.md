@@ -7,7 +7,7 @@ An app that tries to tackle the issue of waste management by incentivizing picki
 This app was written in 30 hours in React Native by team Binevolent. It was bootstrapped using [create-react-native-app](https://github.com/react-community/create-react-native-app).
 
 ## Requirements
-The server component must also be running to retrieve live information in the application. The server can be found here: [https://github.com/codebrew-trash/TrashServer](https://github.com/codebrew-trash/TrashServer).
+The server component must also be running to retrieve live information in the application. The server can be found here: [https://github.com/binevolent/TrashServer](https://github.com/binevolent/TrashServer).
 
 ## Setup
 
